@@ -18,6 +18,20 @@ describe 'hackery', ->
           res.code.should.equal 221
           done()
 
+    it 'should fail to login with an invalid user', (done) ->
+      @timeout = 3000
+      hackery.checkFtp {user: 'bar', pass: 'foo', host: '216.38.80.156'}, (valid, perms, conn) ->
+        should.exist valid
+        valid.should.equal false
+        done()
+
+    it 'should fail to login to an invalid server', (done) ->
+      @timeout = 3000
+      hackery.checkFtp {host: 'google.com'}, (valid, perms, conn) ->
+        should.exist valid
+        valid.should.equal false
+        done()
+
   describe 'ping', ->
     it 'should report github as online', (done) ->
       @timeout = 1000
