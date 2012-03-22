@@ -1,3 +1,36 @@
-require('node-log').setName 'APPNAME'
+ftp = require 'jsftp'
+ping = require 'ping'
+portscanner = require 'portscanner'
+async = require 'async'
 
-module.exports = {}
+hackery =
+  # Networking stuff
+  ping: ping.sys.probe
+
+  scan: (host, port, cb) ->
+    portscanner.checkPortStatus port, host, (err, res) ->
+      cb !err and res isnt 'closed'
+
+  scanAll: (host, ports, cb) ->
+    it = (port, cb) -> 
+      hackery.scan host, port, cb
+
+    async.filter ports, it, cb
+
+  scanRange: (host, start, finish, cb) ->
+    hackery.scanAll host, [start..finish], cb
+
+  # FTP Stuff
+  ftp: ftp
+  checkFtp: (opt={}, cb) ->
+    opt.user ?= "Anonymous"
+    opt.pass ?= ""
+    conn = new ftp
+      host: opt.host
+      port: opt.port
+    conn.auth opt.user, opt.pass, (err, res) -> 
+      conn.features ?= []
+      conn.authorized ?= !err
+      cb conn.authorized, conn.features, conn
+
+module.exports = hackery

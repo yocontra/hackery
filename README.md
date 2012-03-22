@@ -2,11 +2,11 @@
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>hackery</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>Hacking utilities</td>
 </tr>
 <tr>
 <td>Node Version</td>
@@ -22,7 +22,7 @@ NOTHING HERE YET
 
 ## Examples
 
-You can view further examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
+You can view further examples in the [example folder.](https://github.com/wearefractal/hackery/tree/master/examples)
 
 ## LICENSE
 
