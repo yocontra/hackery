@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/wearefractal/hackery.png)](http://travis-ci.org/wearefractal/hackery)
 ## Information
 
 <table>
