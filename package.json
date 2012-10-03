@@ -1,7 +1,7 @@
 {
    "name":"hackery",
    "description":"Hacking utilities",
-   "version":"0.0.2",
+   "version":"0.0.3",
    "homepage":"http://github.com/wearefractal/hackery",
    "repository":"git://github.com/wearefractal/hackery.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",

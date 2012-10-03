@@ -41,7 +41,7 @@ hackery =
     opt.pass ?= "admin"
     opt.port ?= 80
     opt.host = "http://#{opt.user}:#{opt.pass}@#{opt.host}:#{opt.port}"
-    request host, (err, res, body) ->
+    request opt.host, (err, res, body) ->
       return cb err if err?
       return cb null, body
 
