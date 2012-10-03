@@ -1,3 +1,4 @@
+request = require 'request'
 ftp = require 'jsftp'
 ping = require 'ping'
 portscanner = require 'portscanner'
@@ -32,5 +33,16 @@ hackery =
       conn.features ?= []
       conn.authorized ?= !err
       cb conn.authorized, conn.features, conn
+
+  # HTTP Stuff
+  http: request
+  checkHttp: (opt={}, cb) ->
+    opt.user ?= "admin"
+    opt.pass ?= "admin"
+    opt.port ?= 80
+    opt.host = "http://#{opt.user}:#{opt.pass}@#{opt.host}:#{opt.port}"
+    request host, (err, res, body) ->
+      return cb err if err?
+      return cb null, body
 
 module.exports = hackery

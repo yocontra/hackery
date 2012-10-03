@@ -1,7 +1,7 @@
 {
    "name":"hackery",
    "description":"Hacking utilities",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/hackery",
    "repository":"git://github.com/wearefractal/hackery.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -13,14 +13,15 @@
       "jsftp":"*",
       "ping":"*",
       "portscanner":"*",
-      "async":"*"
+      "async":"*",
+      "shodanapi":"*"
    },
    "devDependencies":{
       "should":"*",
       "mocha":"*"
    },
    "scripts":{
-      "test":"mocha"
+      "test":"mocha --compilers coffee:coffee-script --ignore-leaks --reporter spec"
    },
    "engines":{
       "node":">= 0.4.0"
